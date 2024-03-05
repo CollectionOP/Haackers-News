@@ -1,10 +1,10 @@
 const Footer = () => {
   return (
-    <header>
-      <nav>
-        <div className="w-full lg:w-8/12 flex justify-between">
-          <div className="w-full lg:w-5/12 flex justify-between">
-            <ul className="">
+      <footer className="bg-zinc-800 h-44">
+        <div className="w-full flex justify-around pt-5">
+
+          <div className="w-5/12 flex justify-between h-32">
+            <ul className="flex flex-col justify-around">
               <a href="">
                 <li className="text-zinc-400">Newsletters</li>
               </a>
@@ -16,7 +16,7 @@ const Footer = () => {
               </a>
             </ul>
 
-            <ul className="">
+            <ul className="flex flex-col justify-around">
               <a href="">
                 <li className="text-zinc-400">Facebook</li>
               </a>
@@ -28,7 +28,7 @@ const Footer = () => {
               </a>
             </ul>
 
-            <ul className="">
+            <ul className="flex flex-col justify-around">
               <a href="">
                 <li className="text-zinc-400">About</li>
               </a>
@@ -40,14 +40,15 @@ const Footer = () => {
               </a>
             </ul>
           </div>
+
           <div>
             <a href="">
-              <p className="text-zinc-800 bg-amber-400 p-2 rounded-md">Subscribe</p>
+              <p className="text-zinc-800 bg-amber-400 p-2 rounded-md mt-2">Subscribe</p>
             </a>
           </div>
+
         </div>
-      </nav>
-    </header>
+      </footer>
   );
 };
 
