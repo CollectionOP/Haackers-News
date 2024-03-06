@@ -2,11 +2,11 @@ import "./App.css"
 import Navbar from "./components/Navbar/Navbar.jsx"
 import Footer from "./components/Footer/Footer.jsx"
 import Main from "./components/Main/Main.jsx"
+import axios from 'axios'
+import {useState, useEffect} from 'react'
 
 function App() {
 
-<<<<<<< Updated upstream
-=======
   const [news, setNews] = useState();
   const [error, setErr] = useState();
   const [isLoading, setIsLoading] = useState(true)
@@ -32,7 +32,6 @@ function App() {
 
   if (isLoading) return <p>Is Loading</p>
 
->>>>>>> Stashed changes
   return (
     <>
     <Navbar/>
