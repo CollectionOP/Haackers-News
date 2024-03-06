@@ -2,8 +2,8 @@ import "./App.css"
 import Navbar from "./components/Navbar/Navbar.jsx"
 import Footer from "./components/Footer/Footer.jsx"
 import Main from "./components/Main/Main.jsx"
-import axios from "axios"
-import { useState, useEffect } from "react"
+import axios from 'axios'
+import {useState, useEffect} from 'react'
 
 function App() {
 
@@ -29,11 +29,13 @@ function App() {
   useEffect(() => {
     newsApiCall();
   }, [])
-
+  
+  if (isLoading) return <p>Is Loading</p>
+  
   return (
     <>
     <Navbar/>
-    <Main/>
+    <Main news= {news}/>
     <Footer/>
     </>
   )

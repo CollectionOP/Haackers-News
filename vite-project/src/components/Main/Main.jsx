@@ -1,11 +1,24 @@
+import Card from "../Card/Card"
+const Main = ({ news }) => {
 
-const Main = () => {
+    console.log(news)
 
-    return(
+    return (
         <main>
-            <section className="h-[700px]">
+            <section className="h-fit">
                 <p>Welcome to Hackers News!</p>
+                <div className="">
+
+                    {news.map((article, index) => {
+
+                        //     return <li key={index}>{ 'article.story_title ?   article.story_title : article.title} </li>
+                        return <Card title={article.story_title ? article.story_title : article.title} date={article.updated_at} url={article.story_url} />
+                    }
+                    )}
+                </div>
+
             </section>
+
         </main>
     )
 }
