@@ -29,9 +29,9 @@ function App() {
   useEffect(() => {
     newsApiCall();
   }, [])
-
+  
   if (isLoading) return <p>Is Loading</p>
-
+  
   return (
     <>
     <Navbar/>
