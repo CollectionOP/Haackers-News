@@ -2,7 +2,7 @@ import Card from "../Card/Card"
 
 const Main = ({ news}) => {
    
-    console.log(news)
+    // console.log(news)
 
     return (
         <main>
