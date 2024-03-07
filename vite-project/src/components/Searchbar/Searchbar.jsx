@@ -1,30 +1,23 @@
 import { useState } from "react"
 
-const SearchBar = ({ setNews, newsApiCall }) => {
+const SearchBar = ({newsApiCall}) => {
     const [search, setSearch] = useState('')
-    const [page, setPage] = useState(0)
-
-    const handleNextPage = () => {
-        setPage(page + 1);
-    }
-
-    const handlePrevPage = () => {
-        setPage(page - 1);
-    };
-
-
 
     const handleClick = async () => {
-        setPage(0)
         await newsApiCall(search)
     }
-    return (
-        <>
-            <input type="submit" onClick={handleClick}></input>
-            <input placeholder="Search..." className="border-2" type="text" value={search} onChange={e => setSearch(e.target.value)} />
-        </>
-    )
 
+    return(
+        
+        <div className="w-full">
+            <h1 className="w-80 mx-auto text-2xl mb-5">Welcome to Hackers News!</h1>
+            <div className="mx-auto w-72">
+                <input placeholder="Search for news" className="border-2" type="text" value={search} onChange={e => setSearch(e.target.value)}/>
+                <input className="ml-2 border-2" type="submit" onClick={handleClick}></input>
+            </div>
+        </div>
+    ) 
+    
 }
 
 

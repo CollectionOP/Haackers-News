@@ -1,6 +1,6 @@
 const Card = ({ title, date, url }) => {
     return (
-        <a href={url}>
+        <a target="_blank" href={url}>
             <div className="m-2">
                 <div className="bg-white overflow-hidden border-b-4 border-blue-500">
                     <div className="p-4 md:p-6">

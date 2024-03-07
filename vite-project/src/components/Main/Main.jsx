@@ -7,7 +7,6 @@ const Main = ({ news}) => {
     return (
         <main>
             <section className="h-fit">
-                <p>Welcome to Hackers News!</p>
                 <div className="">
                     {news.map((article, index) => {
 

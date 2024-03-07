@@ -3,28 +3,34 @@ import Navbar from "./components/Navbar/Navbar.jsx"
 import Footer from "./components/Footer/Footer.jsx"
 import Main from "./components/Main/Main.jsx"
 import axios from 'axios'
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react'
+import SearchBar from "./components/Searchbar/Searchbar.jsx"
 
 function App() {
-
 
   const [news, setNews] = useState();
   const [error, setErr] = useState();
   const [isLoading, setIsLoading] = useState(true)
+
   const [page, setPage] = useState(1)
 
+  const handleNext = () => {
+    setPage(page + 1)
+}
 
-  const newsApiCall = async () => {
+const handlePrevious = () => {
+    setPage(page - 1)
+}
+
+  
+
+  const newsApiCall = async (search) => {
     try {
-      const response = await axios.get(`https://hn.algolia.com/api/v1/search_by_date?query=&page=${page}`)
+      const response = await axios.get(`https://hn.algolia.com/api/v1/search_by_date?query=${search}&page=${page}`)
       setNews(response.data.hits)
       // console.log(news);
-
-
-
-
     }
-    catch (err) {
+    catch (err){
       setErr(err)
       console.log(error);
     }
@@ -36,34 +42,21 @@ function App() {
   useEffect(() => {
     newsApiCall();
   }, [page])
-
-  const handleNextPage = () => {
-    setPage(page + 1);
-
-  }
-
-  const handlePrevPage = () => {
-    setPage(page - 1);
-  };
-
+  
   if (isLoading) return <p>Is Loading</p>
-
-
-
+  
   return (
     <>
-
-      <Navbar />
-      <Main news={news} />
-
-      <div className="flex justify-around my-5">
-
-        <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" onClick={handlePrevPage}>Previous</button>
-        <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" onClick={handleNextPage}>Next</button>
+    <Navbar/>
+    <SearchBar news={news} newsApiCall={newsApiCall}/>
+    <div className="mt-1 w-full">
+      <div className="mx-auto w-72">
+        <button onClick={handlePrevious} className="border-2" type="submit" >Previous Page</button>
+        <button onClick={handleNext} className="ml-2 border-2" type="submit" >Next Page</button>
       </div>
-
-      <Footer />
-
+    </div>
+    <Main news= {news}/>
+    <Footer/>
     </>
   )
 }
