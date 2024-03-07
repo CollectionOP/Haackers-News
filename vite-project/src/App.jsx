@@ -4,6 +4,7 @@ import Footer from "./components/Footer/Footer.jsx"
 import Main from "./components/Main/Main.jsx"
 import axios from 'axios'
 import {useState, useEffect} from 'react'
+import SearchBar from "./components/Searchbar/Searchbar.jsx"
 
 function App() {
 
@@ -11,9 +12,9 @@ function App() {
   const [error, setErr] = useState();
   const [isLoading, setIsLoading] = useState(true)
 
-  const newsApiCall = async () => {
+  const newsApiCall = async (search) => {
     try {
-      const response = await axios.get(`https://hn.algolia.com/api/v1/search_by_date?query=`)
+      const response = await axios.get(`https://hn.algolia.com/api/v1/search_by_date?query=${search}&page=1`)
       setNews(response.data.hits)
       // console.log(news);
     }
@@ -35,6 +36,7 @@ function App() {
   return (
     <>
     <Navbar/>
+    <SearchBar news={news} newsApiCall={newsApiCall}/>
     <Main news= {news}/>
     <Footer/>
     </>

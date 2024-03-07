@@ -1,6 +1,7 @@
 import Card from "../Card/Card"
-const Main = ({ news }) => {
 
+const Main = ({ news}) => {
+   
     console.log(news)
 
     return (
@@ -8,11 +9,10 @@ const Main = ({ news }) => {
             <section className="h-fit">
                 <p>Welcome to Hackers News!</p>
                 <div className="">
-
                     {news.map((article, index) => {
 
                         //     return <li key={index}>{ 'article.story_title ?   article.story_title : article.title} </li>
-                        return <Card title={article.story_title ? article.story_title : article.title} date={article.updated_at} url={article.story_url} />
+                        return <Card key={index} title={article.story_title ? article.story_title : article.title} date={article.updated_at} url={article.story_url} />
                     }
                     )}
                 </div>
